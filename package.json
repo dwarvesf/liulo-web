@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@loadable/component": "^5.0.1",
-    "internal-nav-helper": "^1.0.2",
+    "internal-nav-helper": "^1.1.0",
     "money-clip": "^2.0.2",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",

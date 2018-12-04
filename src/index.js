@@ -54,12 +54,12 @@ window.onGoogleYoloLoad = googleyolo => {
       if (credential.password) {
         // An ID (usually email address) and password credential was retrieved.
         // Sign in to your backend using the password.
-        signInWithEmailAndPassword(credential.id, credential.password);
+        // signInWithEmailAndPassword(credential.id, credential.password);
       } else {
         // A Google Account is retrieved. Since Google supports ID token responses,
         // you can use the token to sign in instead of initiating the Google sign-in
         // flow.
-        useGoogleIdTokenForAuth(credential.idToken);
+        // useGoogleIdTokenForAuth(credential.idToken);
       }
     },
     error => {
@@ -87,7 +87,7 @@ window.onGoogleYoloLoad = googleyolo => {
           credential => {
             if (credential.idToken) {
               // Send the token to your auth backend.
-              useGoogleIdTokenForAuth(credential.idToken);
+              // useGoogleIdTokenForAuth(credential.idToken);
             }
           },
           error => {

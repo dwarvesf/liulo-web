@@ -13,7 +13,7 @@ const Header = ({
   <header className={className}>
     <div className="container md:py-10 py-4 px-4">
       <div className="flex items-center">
-        <LogoText className="w-24 md:w-auto" />
+        <LogoText />
         <ul className="ml-auto list-reset flex">
           <li className="px-3">
             {isLoggedIn ? (

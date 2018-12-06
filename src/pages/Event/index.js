@@ -18,7 +18,8 @@ class Event extends React.Component {
     this.props
       .doCreateQuestion(values.description)
       .then(resp => {
-        return resp;
+        alert('Ask question successfully');
+        return undefined;
       })
       .catch(_err => {
         alert('Something went wrong. Please try again');

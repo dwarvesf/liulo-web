@@ -13,8 +13,11 @@ class Home extends Component {
   };
   render() {
     return (
-      <div id="home" className="container px-4 mb-10">
-        <h1 className="font-bold block mb-4 text-center lg:text-4xl text-xl">
+      <div
+        id="home"
+        className="container px-4 pb-10 flex flex-col flex-grow justify-center"
+      >
+        <h1 className="font-bold block mb-4 text-center md:text-4xl text-xl">
           Enter an event code to join
         </h1>
         <Form onSubmit={this.submit}>

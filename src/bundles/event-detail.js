@@ -13,7 +13,7 @@ bundle.reactShouldFetchEventDetail = createSelector(
   'selectEventDetailShouldUpdate',
   'selectRouteParams',
   (shouldUpdate, routeParams) => {
-    if (shouldUpdate) {
+    if (shouldUpdate && routeParams.code) {
       return { actionCreator: 'doFetchEventDetail' };
     }
   },

@@ -12,19 +12,19 @@ const Header = ({
   doLogout,
 }) => (
   <header className={className}>
-    <div className="container lg:py-10 py-4 px-4">
+    <div className="container md:py-10 py-4 px-4">
       <div className="flex items-center">
-        <LogoText className="w-24 lg:w-auto" />
+        <LogoText className="w-24 md:w-auto" />
         <ul className="ml-auto list-reset flex">
           <li className="px-3">
-            <Link to="/" className="lg:text-base text-sm text-black">
+            <Link to="/" className="md:text-base text-sm text-black">
               Join Event
             </Link>
           </li>
           <li className="px-3">
             {isLoggedIn ? (
               <button
-                className="lg:text-base text-sm text-black"
+                className="md:text-base text-sm text-black"
                 type="button"
                 onClick={() => doLogout()}
               >
@@ -32,7 +32,7 @@ const Header = ({
               </button>
             ) : (
               <button
-                className="lg:text-base text-sm text-black"
+                className="md:text-base text-sm text-black"
                 type="button"
                 onClick={() => doOpenLoginDialog()}
               >

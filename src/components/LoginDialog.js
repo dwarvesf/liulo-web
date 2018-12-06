@@ -35,7 +35,7 @@ class LoginDialog extends React.Component {
           >
             <SvgClose className="absolute pin-r pin-t mt-4 mr-4" />
           </button>
-          <h3 className="text-3xl mb-10 font-medium">Đăng nhập</h3>
+          <h3 className="text-3xl mb-10 font-medium">Login</h3>
           <div style={{ width: '280px' }} className="mx-auto">
             <GoogleLogin
               clientId="1017135429311-5isdspj6lrpqjkrc2vsvbdopqstdvk6l.apps.googleusercontent.com"
@@ -48,7 +48,7 @@ class LoginDialog extends React.Component {
                   <span className="icon">
                     <SvgGoogle height="18" />
                   </span>
-                  Dùng tài khoản Google
+                  Login with Google
                 </button>
               )}
               buttonText="Login"

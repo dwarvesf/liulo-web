@@ -16,9 +16,6 @@ const sortTypes = [
   { text: 'Answered', value: 'status' },
 ];
 
-const validate = values => {
-  return { description: 'Error' };
-};
 class Event extends React.Component {
   state = { sortBy: sortTypes[0].value };
   componentDidMount() {

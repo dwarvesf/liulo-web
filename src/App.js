@@ -13,7 +13,7 @@ const App = ({ doUpdateUrl, route, loginDialogStatus, doCloseLoginDialog }) => {
       className="flex flex-col min-h-screen"
     >
       <Header />
-      <div className="flex-grow">
+      <div className="flex-grow flex flex-col">
         <route.C />
       </div>
       <Footer />

@@ -1,4 +1,6 @@
 import React from 'react';
+import cc from 'classcat';
+import orderBy from 'lodash/orderBy';
 import { connect } from 'redux-bundler-react';
 import { Form, Field } from 'react-final-form';
 
@@ -8,7 +10,17 @@ import FormReset from '@/components/FormReset';
 import { Input, InputMsg } from '@/components/Input';
 import FormField from '@/components/FormField';
 
+const sortTypes = [
+  { text: 'Time', value: 'inserted_at' },
+  { text: 'Vote', value: 'vote_count' },
+  { text: 'Answered', value: 'status' },
+];
+
+const validate = values => {
+  return { description: 'Error' };
+};
 class Event extends React.Component {
+  state = { sortBy: sortTypes[0].value };
   componentDidMount() {
     setInterval(() => {
       this.props.doMarkEventDetailAsOutdated();
@@ -41,11 +53,11 @@ class Event extends React.Component {
       );
     return (
       <div className="container px-4 pt-8">
-        <h1 className="md:text-3xl text-2xl flex items-center font-bold flex-grow md:mb-0 mb-4">
+        <h1 className="md:text-3xl text-2xl flex items-center font-normal flex-grow md:mb-0 mb-4">
           {eventDetail.name}
         </h1>
         <Form onSubmit={this.submit}>
-          {({ handleSubmit, submitting, form }) => (
+          {({ handleSubmit, submitting, form, invalid, pristine }) => (
             <form onSubmit={handleSubmit} className="block w-full mt-6">
               <FormReset form={form} />
               <Field name="description">
@@ -73,7 +85,7 @@ class Event extends React.Component {
               </Field>
               <div className="text-right w-full mb-5">
                 <button
-                  disabled={submitting}
+                  disabled={submitting || pristine || invalid}
                   className="btn btn-primary h-12 text-lg w-48"
                   type="button"
                   onClick={() => {
@@ -90,9 +102,34 @@ class Event extends React.Component {
             </form>
           )}
         </Form>
-        {this.props.eventDetailQuestions.map(q => (
-          <QuestionItem key={q.id} question={q} />
-        ))}
+        <div className="mt-12">
+          <div className="md:w-3/5 w-full flex flex-wrap justify-between mb-6 items-center">
+            <span className="md:text-3xl text-2xl">Sort by</span>
+            {sortTypes.map(({ text, value }) => (
+              <button
+                key={value}
+                type="button"
+                className="md:text-xl text-sm outline-none inline-flex items-center"
+                onClick={() => {
+                  this.setState({ sortBy: value });
+                }}
+              >
+                <span
+                  className={cc([
+                    'radio md:mr-3 mr-2',
+                    { active: this.state.sortBy === value },
+                  ])}
+                />
+                {text}
+              </button>
+            ))}
+          </div>
+        </div>
+        {orderBy(
+          this.props.eventDetailQuestions,
+          [this.state.sortBy],
+          ['desc'],
+        ).map(q => <QuestionItem key={q.id} question={q} />)}
       </div>
     );
   }

@@ -16,6 +16,9 @@
     opacity: .7;
   }
 
+  &:disabled {
+    @apply opacity-50 bg-grey-light text-black border-grey-light cursor-not-allowed;
+  }
 }
 .btn-primary {
   @apply bg-primary border-primary text-white;
@@ -29,6 +32,19 @@
       width: 3.5rem;
       height: 3.5rem;
       @apply inline-flex items-center justify-center border-r border-white mr-4;
+    }
+  }
+}
+
+.radio {
+  content: ' ';
+  @apply h-5 w-5 rounded-full overflow-hidden inline-flex items-center justify-center border-2 border-black;
+
+  &.active {
+    @apply border-primary;
+    &:before {
+      content: ' ';
+      @apply h-3 w-3 inline-block rounded-full overflow-hidden bg-primary;
     }
   }
 }

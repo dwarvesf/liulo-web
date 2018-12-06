@@ -6,7 +6,7 @@ const Logo = ({
   descClass = 'text-black',
   ...rest
 }) => (
-  <svg width="200px" height="49px" viewBox="0 0 180 49" {...rest}>
+  <svg width="200px" height="49px" viewBox="0 0 230 49" {...rest}>
     <g
       id="Symbols"
       stroke="none"
@@ -98,7 +98,7 @@ const Logo = ({
                 className={descClass}
               >
                 <tspan x="60" y="53">
-                  gửi câu hỏi dễ dàng
+                  send question with ease
                 </tspan>
               </text>
             </g>

@@ -29,3 +29,6 @@ body {
 .dialog {
   padding: 30px 30px 40px;
 }
+.outline-none, .outline-none:hover, .outline-none:focus {
+  outline: none;
+}

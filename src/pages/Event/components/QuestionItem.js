@@ -1,8 +1,8 @@
 import React from 'react';
-import cc from 'classcat';
+import dayjs from 'dayjs';
 import { connect } from 'redux-bundler-react';
 import Component from '@reach/component-component';
-import { ReactComponent as SvgUp } from '@/components/svg/vote.svg';
+import Vote from '@/components/Vote';
 
 class QuestionItem extends React.Component {
   isVoted = () => {
@@ -17,19 +17,25 @@ class QuestionItem extends React.Component {
     return (
       <div className="md:p-5 md:pr-8 p-3 border rounded-sm overflow-hidden flex items-center mb-5 md:flex-row flex-col">
         <div className="flex-grow w-full">
-          <div className="font-bold mb-4">{question.description}</div>
-          <div className="opacity-75">{question.owner.full_name}</div>
+          <div className="font-bold md:mb-5">{question.description}</div>
+          <div className="hidden md:block opacity-50">
+            {question.owner.full_name} -{' '}
+            {dayjs(question.inserted_at + 'Z').format('HH:mm')}
+          </div>
         </div>
-        <div className="flex-none md:mt-0 mt-5 ml-auto flex items-center hidden text-2xl">
-          <SvgUp className="mr-2" />
-          {question.vote_count}
+        <div className="flex-none md:mt-0 mt-5 ml-auto flex items-center hidden text-base md:w-auto w-full">
+          <div className="flex-grow md:hidden opacity-50">
+            {question.owner.full_name} -{' '}
+            {dayjs(question.inserted_at + 'Z').format('HH:mm')}
+          </div>
+          <Vote
+            color={question.status === 'answered' ? 'var(--primary)' : 'none'}
+            className="mr-6"
+          />
           <Component initialState={{ submitting: false }}>
             {({ state, setState }) => (
               <button
-                className={cc([
-                  'btn text-base h-10 w-32 ml-12',
-                  { 'btn-primary': !isVoted },
-                ])}
+                className="mr-2 leading-none"
                 type="button"
                 disabled={state.submitting}
                 onClick={async () => {
@@ -49,10 +55,11 @@ class QuestionItem extends React.Component {
                   }
                 }}
               >
-                {state.submitting ? 'Sending...' : isVoted ? 'Unvote' : 'Vote'}
+                <Vote color={isVoted ? 'var(--primary)' : 'none'} />
               </button>
             )}
           </Component>
+          {question.vote_count}
         </div>
       </div>
     );

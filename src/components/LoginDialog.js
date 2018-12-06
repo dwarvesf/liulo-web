@@ -48,7 +48,7 @@ class LoginDialog extends React.Component {
                   <span className="icon">
                     <SvgGoogle height="18" />
                   </span>
-                  Login with Google
+                  Login with using Google
                 </button>
               )}
               buttonText="Login"

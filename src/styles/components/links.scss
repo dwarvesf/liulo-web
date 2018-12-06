@@ -1,0 +1,7 @@
+a {
+  @apply no-underline;
+
+  &:hover,&:focus {
+    @apply opacity-75;
+  }
+}

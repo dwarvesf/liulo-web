@@ -35,7 +35,7 @@ export default {
       });
     } finally {
       await cache.clear();
-      window.location = '/';
+      location.reload();
     }
   },
 };

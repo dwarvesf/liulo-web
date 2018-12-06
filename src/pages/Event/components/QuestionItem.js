@@ -5,9 +5,13 @@ import Component from '@reach/component-component';
 import { ReactComponent as SvgUp } from '@/components/svg/vote.svg';
 
 class QuestionItem extends React.Component {
-  isVoted = () => this.props.question.your_votes.length > 0;
+  isVoted = () => {
+    const { question, user } = this.props;
+    if (!question || !user) return false;
+    return !!question.question_votes.find(i => i.voter_id === user.id);
+  };
   render() {
-    const { question, isLoggedIn } = this.props;
+    const { question, isLoggedIn, doOpenLoginDialog } = this.props;
     const isVoted = this.isVoted();
     if (!question) return null;
     return (
@@ -19,39 +23,36 @@ class QuestionItem extends React.Component {
         <div className="flex-none md:mt-0 mt-5 ml-auto flex items-center hidden text-2xl">
           <SvgUp className="mr-2" />
           {question.vote_count}
-          {isLoggedIn && (
-            <Component initialState={{ submitting: false }}>
-              {({ state, setState }) => (
-                <button
-                  className={cc([
-                    'btn text-base h-10 w-32 ml-12',
-                    { 'btn-primary': !isVoted },
-                  ])}
-                  type="button"
-                  disabled={state.submitting}
-                  onClick={async () => {
-                    setState({ submitting: true });
-                    try {
-                      isVoted
-                        ? await this.props.doUnvoteQuestion(question.id)
-                        : await this.props.doVoteQuestion(question.id);
-                    } catch (e) {
-                      console.error(e);
-                      alert('Something went wrong. Please try again');
-                    } finally {
-                      setState({ submitting: false });
-                    }
-                  }}
-                >
-                  {state.submitting
-                    ? 'Sending...'
-                    : isVoted
-                      ? 'Unvote'
-                      : 'Vote'}
-                </button>
-              )}
-            </Component>
-          )}
+          <Component initialState={{ submitting: false }}>
+            {({ state, setState }) => (
+              <button
+                className={cc([
+                  'btn text-base h-10 w-32 ml-12',
+                  { 'btn-primary': !isVoted },
+                ])}
+                type="button"
+                disabled={state.submitting}
+                onClick={async () => {
+                  if (!isLoggedIn) {
+                    return doOpenLoginDialog();
+                  }
+                  setState({ submitting: true });
+                  try {
+                    isVoted
+                      ? await this.props.doUnvoteQuestion(question.id)
+                      : await this.props.doVoteQuestion(question.id);
+                  } catch (e) {
+                    console.error(e);
+                    alert('Something went wrong. Please try again');
+                  } finally {
+                    setState({ submitting: false });
+                  }
+                }}
+              >
+                {state.submitting ? 'Sending...' : isVoted ? 'Unvote' : 'Vote'}
+              </button>
+            )}
+          </Component>
         </div>
       </div>
     );
@@ -60,7 +61,9 @@ class QuestionItem extends React.Component {
 
 export default connect(
   'selectIsLoggedIn',
+  'selectUser',
   'doVoteQuestion',
   'doUnvoteQuestion',
+  'doOpenLoginDialog',
   QuestionItem,
 );

@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'redux-bundler-react';
 
-import Link from '@/components/Link';
 import LogoText from '@/components/LogoText';
 
 const Header = ({
@@ -16,11 +15,6 @@ const Header = ({
       <div className="flex items-center">
         <LogoText className="w-24 md:w-auto" />
         <ul className="ml-auto list-reset flex">
-          <li className="px-3">
-            <Link to="/" className="md:text-base text-sm text-black">
-              Join Event
-            </Link>
-          </li>
           <li className="px-3">
             {isLoggedIn ? (
               <button

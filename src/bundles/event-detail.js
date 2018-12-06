@@ -22,7 +22,7 @@ bundle.reactShouldFetchEventDetail = createSelector(
 bundle.selectEventDetailQuestions = createSelector(
   'selectEventDetail',
   eventDetail => {
-    return eventDetail?.questions || [];
+    return eventDetail?.questions?.filter(q => q.status === 'active') || [];
   },
 );
 

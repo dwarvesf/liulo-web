@@ -17,7 +17,7 @@ class Home extends Component {
           Enter an event code to join
         </h1>
         <Form onSubmit={this.submit}>
-          {({ handleSubmit, submitting, dirtySinceLastSubmit }) => (
+          {({ handleSubmit, submitting }) => (
             <form
               onSubmit={handleSubmit}
               id="join-form"

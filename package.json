@@ -10,12 +10,21 @@
   },
   "dependencies": {
     "@loadable/component": "^5.0.1",
+    "@reach/component-component": "^0.1.1",
+    "axios": "^0.18.0",
+    "classcat": "^3.2.3",
+    "final-form": "^4.11.0",
     "internal-nav-helper": "^1.0.2",
     "money-clip": "^2.0.2",
+    "query-string": "^6.2.0",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
+    "react-final-form": "^4.0.2",
+    "react-google-login": "^4.0.0",
+    "react-modal": "^3.6.1",
     "redux-bundler": "^21.2.2",
-    "redux-bundler-react": "^1.0.1"
+    "redux-bundler-react": "^1.0.1",
+    "typeface-lato": "0.0.54"
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.2.0",

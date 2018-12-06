@@ -44,13 +44,13 @@ View the full documentation at https://tailwindcss.com.
 let colors = {
   transparent: 'transparent',
 
-  black: '#22292f',
-  'grey-darkest': '#3d4852',
+  black: '#191B39',
+  'grey-darkest': '#23252C',
   'grey-darker': '#606f7b',
   'grey-dark': '#8795a1',
   grey: '#b8c2cc',
   'grey-light': '#dae1e7',
-  'grey-lighter': '#f1f5f8',
+  'grey-lighter': '#D8D8D8',
   'grey-lightest': '#f8fafc',
   white: '#ffffff',
 
@@ -125,6 +125,8 @@ let colors = {
   'pink-light': '#fa7ea8',
   'pink-lighter': '#ffbbca',
   'pink-lightest': '#ffebef',
+
+  primary: 'var(--primary)',
 };
 
 module.exports = {
@@ -189,6 +191,7 @@ module.exports = {
 
   fonts: {
     sans: [
+      'Lato',
       'system-ui',
       'BlinkMacSystemFont',
       '-apple-system',
@@ -250,8 +253,8 @@ module.exports = {
     lg: '1.125rem', // 18px
     xl: '1.25rem', // 20px
     '2xl': '1.5rem', // 24px
-    '3xl': '1.875rem', // 30px
-    '4xl': '2.25rem', // 36px
+    '3xl': '1.875rem', // 28px
+    '4xl': '2.25rem', // 32px
     '5xl': '3rem', // 48px
   },
 
@@ -479,6 +482,8 @@ module.exports = {
     '4/5': '80%',
     '1/6': '16.66667%',
     '5/6': '83.33333%',
+    '7/12': '58.33333%',
+    '5/12': '41.66667%',
     full: '100%',
     screen: '100vw',
   },

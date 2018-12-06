@@ -2,34 +2,27 @@ import React from 'react';
 import { connect } from 'redux-bundler-react';
 import navHelper from 'internal-nav-helper';
 
-const navItems = [
-  { url: '/', label: 'Home' },
-  { url: '/about', label: 'About' },
-  { url: '/xyz', label: 'xyz' },
-];
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import LoginDialog from '@/components/LoginDialog';
 
-const App = ({ doUpdateUrl, pathname, route }) => {
+const App = ({ doUpdateUrl, route, loginDialogStatus, doCloseLoginDialog }) => {
   return (
-    <main onClick={navHelper(doUpdateUrl)}>
-      <nav className="p-3 mb-4">
-        <ul className="list-reset text-center">
-          {navItems.map(item => {
-            return (
-              <li key={item.url} className="inline-block">
-                <a
-                  href={item.url}
-                  className={`no-underline inline-block mr-1 p-2 text-blue hover:text-blue-darker ${
-                    item.url === pathname ? 'bg-blue-lighter' : ''
-                  }`}
-                >
-                  {item.label}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-      <route.C />
+    <main
+      onClick={navHelper(doUpdateUrl)}
+      className="flex flex-col min-h-screen"
+    >
+      <Header />
+      <div className="flex-grow">
+        <route.C />
+      </div>
+      <Footer />
+      <LoginDialog
+        isShow={loginDialogStatus}
+        onClose={() => {
+          doCloseLoginDialog();
+        }}
+      />
     </main>
   );
 };
@@ -37,6 +30,8 @@ const App = ({ doUpdateUrl, pathname, route }) => {
 export default connect(
   'selectRoute',
   'selectPathname',
+  'selectLoginDialogStatus',
+  'doCloseLoginDialog',
   'doUpdateUrl',
   App,
 );

@@ -1,7 +1,7 @@
 :root {
-  --royal-blue: #5F5EE8;
+  --cerise-red: #E13F5E;
 
-  --primary: var(--royal-blue);
+  --primary: var(--cerise-red);
   --gutter: 2rem; /* 32px */
 }
 
@@ -24,4 +24,8 @@ body {
 *:after {
   box-sizing: inherit;
   margin: 0;
+}
+
+.dialog {
+  padding: 30px 30px 40px;
 }

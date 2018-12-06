@@ -45,11 +45,7 @@ class Event extends React.Component {
         </h1>
         <Form onSubmit={this.submit}>
           {({ handleSubmit, submitting, form }) => (
-            <form
-              onSubmit={handleSubmit}
-              id="join-form"
-              className="mx-auto flex items-center flex-col w-full mt-6"
-            >
+            <form onSubmit={handleSubmit} className="block w-full mt-6">
               <FormReset form={form} />
               <Field name="description">
                 {({ input, meta }) => (

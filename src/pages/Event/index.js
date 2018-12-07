@@ -20,6 +20,7 @@ const sortTypes = [
 class Event extends React.Component {
   state = { sortBy: sortTypes[0].value };
   componentDidMount() {
+    this.props.doMarkEventDetailAsOutdated();
     setInterval(() => {
       this.props.doMarkEventDetailAsOutdated();
     }, 10000);
@@ -43,8 +44,7 @@ class Event extends React.Component {
   };
   render() {
     const { eventDetail, isLoggedIn, eventDetailIsLoading } = this.props;
-    if (eventDetailIsLoading) return null;
-    if (!eventDetail)
+    if (!eventDetail && !eventDetailIsLoading)
       return (
         <div className="container px-4 text-4xl font-bold text-center">
           Event Not Found

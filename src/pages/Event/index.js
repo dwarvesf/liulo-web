@@ -99,34 +99,45 @@ class Event extends React.Component {
             </form>
           )}
         </Form>
-        <div className="mt-12">
-          <div className="md:w-3/5 w-full flex flex-wrap justify-between mb-6 items-center">
-            <span className="md:text-3xl text-2xl">Sort by</span>
-            {sortTypes.map(({ text, value }) => (
-              <button
-                key={value}
-                type="button"
-                className="md:text-xl text-sm outline-none inline-flex items-center"
-                onClick={() => {
-                  this.setState({ sortBy: value });
-                }}
-              >
-                <span
-                  className={cc([
-                    'radio md:mr-3 mr-2',
-                    { active: this.state.sortBy === value },
-                  ])}
-                />
-                {text}
-              </button>
-            ))}
+        {this.props.eventDetailQuestions.length > 0 ? (
+          <>
+            <div className="mt-12">
+              <div className="md:w-3/5 w-full flex flex-wrap justify-between mb-6 items-center">
+                <span className="md:text-3xl text-2xl">Sort by</span>
+                {sortTypes.map(({ text, value }) => (
+                  <button
+                    key={value}
+                    type="button"
+                    className="md:text-xl text-sm outline-none inline-flex items-center"
+                    onClick={() => {
+                      this.setState({ sortBy: value });
+                    }}
+                  >
+                    <span
+                      className={cc([
+                        'radio md:mr-3 mr-2',
+                        { active: this.state.sortBy === value },
+                      ])}
+                    />
+                    {text}
+                  </button>
+                ))}
+              </div>
+            </div>
+            {orderBy(
+              this.props.eventDetailQuestions,
+              [this.state.sortBy],
+              ['desc'],
+            ).map(q => <QuestionItem key={q.id} question={q} />)}
+          </>
+        ) : (
+          <div className="text-center">
+            <div className="opacity-50 text-lg mb-3">
+              There are no questions asked yet
+            </div>
+            <div className="font-bold text-xl">Ask the first one</div>
           </div>
-        </div>
-        {orderBy(
-          this.props.eventDetailQuestions,
-          [this.state.sortBy],
-          ['desc'],
-        ).map(q => <QuestionItem key={q.id} question={q} />)}
+        )}
       </div>
     );
   }

@@ -4,6 +4,18 @@ import { connect } from 'redux-bundler-react';
 import Component from '@reach/component-component';
 import { ReactComponent as SvgCheck } from '@/components/svg/circle-check.svg';
 
+const copyToClipboard = str => {
+  const el = document.createElement('textarea');
+  el.value = str;
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+  alert('copied');
+};
 class TopicItem extends React.Component {
   render() {
     const { topic } = this.props;
@@ -13,7 +25,19 @@ class TopicItem extends React.Component {
       <div className="md:p-5 md:pr-8 p-3 border rounded-sm overflow-hidden flex items-center mb-5 md:flex-row flex-col relative">
         <div className="flex-grow w-full">
           <div className="font-bold mb-5">{topic.name}</div>
-          <div className="mb-5">{topic.code}</div>
+          <div className="mb-5">
+            <button
+              type="button"
+              className="text-blue underline hover:text-blue-dark"
+              title="Click to copy url"
+              onClick={() => {
+                const { origin } = this.props.urlObject;
+                copyToClipboard(`${origin}/event/${topic.code}`);
+              }}
+            >
+              {topic.code}
+            </button>
+          </div>
           <div className="opacity-75">{topic.description}</div>
         </div>
         <div className="flex-none pl-5 md:mt-0 mt-5 ml-auto flex items-center hidden text-base md:w-auto w-full">
@@ -58,5 +82,6 @@ export default connect(
   'doRemoveQuestion',
   'doDeactiveTopic',
   'doActiveTopic',
+  'selectUrlObject',
   TopicItem,
 );

@@ -3,6 +3,7 @@ import { createRouteBundle } from 'redux-bundler';
 import loadable from '@/utils/loadable';
 const Home = loadable(() => import('@/pages/Home'));
 const Event = loadable(() => import('@/pages/Event'));
+const TopicManager = loadable(() => import('@/pages/TopicManager'));
 const NotFound = loadable(() => import('@/pages/NotFound'));
 
 export default createRouteBundle({
@@ -13,6 +14,10 @@ export default createRouteBundle({
   '/event/:code': {
     name: 'Event',
     C: Event,
+  },
+  '/manage-topic/:code': {
+    name: 'TopicManager',
+    C: TopicManager,
   },
   '*': {
     name: 'NotFound',

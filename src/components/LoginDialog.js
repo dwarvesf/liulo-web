@@ -14,6 +14,7 @@ class LoginDialog extends React.Component {
         .doLogin({ accessToken, provider: 'google' })
         .then(() => {
           this.props.doCloseLoginDialog();
+          this.props.doMarkMyTopicAsOutdated();
           return undefined;
         })
         .catch(err => {
@@ -65,5 +66,6 @@ class LoginDialog extends React.Component {
 export default connect(
   'doLogin',
   'doCloseLoginDialog',
+  'doMarkMyTopicAsOutdated',
   LoginDialog,
 );

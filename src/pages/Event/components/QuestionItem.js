@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import { connect } from 'redux-bundler-react';
 import Component from '@reach/component-component';
 import Vote from '@/components/Vote';
+import Reply from '@/components/Reply';
 
 class QuestionItem extends React.Component {
   isVoted = () => {
@@ -28,7 +29,7 @@ class QuestionItem extends React.Component {
             {question.owner.full_name} -{' '}
             {dayjs(question.inserted_at + 'Z').format('HH:mm')}
           </div>
-          <Vote
+          <Reply
             color={question.status === 'answered' ? 'var(--primary)' : 'none'}
             className="mr-6"
           />

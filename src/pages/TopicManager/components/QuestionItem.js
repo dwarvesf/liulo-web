@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import { connect } from 'redux-bundler-react';
 import Component from '@reach/component-component';
 import Vote from '@/components/Vote';
+import Reply from '@/components/Reply';
 import { ReactComponent as SvgClose } from '@/components/svg/close.svg';
 
 class QuestionItem extends React.Component {
@@ -62,7 +63,7 @@ class QuestionItem extends React.Component {
                   }
                 }}
               >
-                <Vote color={isAnswered ? 'var(--primary)' : 'none'} />
+                <Reply color={isAnswered ? 'var(--primary)' : 'none'} />
               </button>
             )}
           </Component>

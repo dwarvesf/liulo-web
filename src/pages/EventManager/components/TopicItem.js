@@ -4,6 +4,8 @@ import { connect } from 'redux-bundler-react';
 import Component from '@reach/component-component';
 import { ReactComponent as SvgCheck } from '@/components/svg/circle-check.svg';
 
+import Link from '@/components/Link';
+
 const copyToClipboard = str => {
   const el = document.createElement('textarea');
   el.value = str;
@@ -25,10 +27,10 @@ class TopicItem extends React.Component {
       <div className="md:p-5 md:pr-8 p-3 border rounded-sm overflow-hidden flex items-center mb-5 md:flex-row flex-col relative">
         <div className="flex-grow w-full">
           <div className="font-bold mb-5">{topic.name}</div>
-          <div className="mb-5">
+          <div className="mb-5 flex items-center">
             <button
               type="button"
-              className="text-blue underline hover:text-blue-dark"
+              className="text-primary underline mr-5"
               title="Click to copy url"
               onClick={() => {
                 const { origin } = this.props.urlObject;
@@ -37,6 +39,13 @@ class TopicItem extends React.Component {
             >
               {topic.code}
             </button>
+            <Link
+              to={`/manage-topic/${topic.code}`}
+              className="text-primary underline"
+              target="_blank"
+            >
+              Manage Topic
+            </Link>
           </div>
           <div className="opacity-75">{topic.description}</div>
         </div>

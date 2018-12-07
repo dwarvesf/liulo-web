@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="133px" height="144px" viewBox="0 0 133 144" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Illus</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile-QuestionList-Member-Copy" transform="translate(-122.000000, -498.000000)">
+            <g id="Group-3" transform="translate(50.000000, 499.000000)">
+                <g id="Illus" transform="translate(72.000000, 0.000000)">
+                    <g id="comment-add" transform="translate(57.000000, 0.000000)" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline id="Shape" stroke="#191B39" points="12.2282609 37.3369565 12.2282609 75 32.3152174 54.9130435 75 54.9130435 75 12.2282609 37.3369565 12.2282609"></polyline>
+                        <path d="M12.2282609,0 L12.2282609,24.4565217" id="Shape" stroke="#E13F5E"></path>
+                        <path d="M24.4565217,12.2282609 L0,12.2282609" id="Shape" stroke="#E13F5E"></path>
+                    </g>
+                    <g id="single-03" transform="translate(0.000000, 67.000000)" fill-rule="nonzero">
+                        <path d="M57.421875,38 C52.3265625,43.341228 45.2765625,46.6525936 37.5,46.6525936 C29.7234375,46.6525936 22.6734375,43.341228 17.578125,38 C7.03125,44.9210967 0,57.1442914 0,71.1087656 L0,76 L75,76 L75,71.1087656 C75,57.1442914 67.96875,44.9210967 57.421875,38 Z" id="Shape" fill="#E13F5E"></path>
+                        <ellipse id="Oval" stroke="#D8D8D8" cx="37.5" cy="19" rx="18.9516129" ry="19"></ellipse>
+                    </g>
+                    <g id="question" transform="translate(97.000000, 25.000000)">
+                        <circle id="Oval" fill="#E13F5E" fill-rule="nonzero" cx="3.2" cy="15.2" r="1.6"></circle>
+                        <path d="M0,0.685077501 C2.7198734,-0.386104503 6.24069112,-0.258335221 7.44377622,1.47546422 C8.64686133,3.20926366 7.81421297,5.2223727 5.75511863,6.77788942 C3.69602429,8.33340615 2.99352938,9.175792 2.99352938,10.4" id="Shape" stroke="#191B39" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

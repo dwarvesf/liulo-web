@@ -5,6 +5,7 @@ import { connect } from 'redux-bundler-react';
 import { Form, Field } from 'react-final-form';
 
 import QuestionItem from './components/QuestionItem';
+import EmptyQuestion from './components/EmptyQuestion';
 import FormReset from '@/components/FormReset';
 
 import { Input, InputMsg } from '@/components/Input';
@@ -136,12 +137,7 @@ class Event extends React.Component {
             ).map(q => <QuestionItem key={q.id} question={q} />)}
           </>
         ) : (
-          <div className="text-center">
-            <div className="opacity-50 text-lg mb-3">
-              There are no questions asked yet
-            </div>
-            <div className="font-bold text-xl">Ask the first one</div>
-          </div>
+          <EmptyQuestion />
         )}
       </div>
     );

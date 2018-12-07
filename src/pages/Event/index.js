@@ -42,7 +42,8 @@ class Event extends React.Component {
     this.openQuestionDialog();
   };
   render() {
-    const { eventDetail, isLoggedIn } = this.props;
+    const { eventDetail, isLoggedIn, eventDetailIsLoading } = this.props;
+    if (eventDetailIsLoading) return null;
     if (!eventDetail)
       return (
         <div className="container px-4 text-4xl font-bold text-center">
@@ -148,6 +149,7 @@ export default connect(
   'selectIsLoggedIn',
   'doOpenLoginDialog',
   'selectEventDetail',
+  'selectEventDetailIsLoading',
   'doCreateQuestion',
   'selectEventDetailQuestions',
   'doMarkEventDetailAsOutdated',

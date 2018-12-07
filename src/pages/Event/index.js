@@ -55,7 +55,7 @@ class Event extends React.Component {
           {eventDetail.name}
         </h1>
         {eventDetail.description && (
-          <div className="mb-5 text-grey-darker text-base">
+          <div className="mb-5 text-grey-darker text-base leading-normal">
             {eventDetail.description}
           </div>
         )}

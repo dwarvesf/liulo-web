@@ -795,6 +795,7 @@ module.exports = {
 
   svgFill: {
     current: 'currentColor',
+    primary: 'var(--primary)',
   },
 
   /*

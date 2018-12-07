@@ -39,7 +39,18 @@ class CoreService {
   login = data => this.instance.post('/login', data);
   logout = () => this.instance.delete('/logout');
 
+  // EVENT
   fetchEvent = code => this.instance.get(`/topic/${code}`);
+  fetchMyEvent = code => this.instance.get(`/event/${code}/my_event`);
+
+  // TOPIC
+  fetchMyTopic = code => this.instance.get(`/topic/${code}/get_my_topic`);
+  createTopic = (id, data) =>
+    this.instance.post(`/event/${id}/topic`, { topic: data });
+  activeTopic = id => this.instance.post(`/topic/${id}/active`);
+  deactiveTopic = id => this.instance.post(`/topic/${id}/deactive`);
+
+  // QUESTION
   createQuestion = (id, description) =>
     this.instance.post(`/topic/${id}/question`, { question: { description } });
   voteQuestion = (topicId, questionId) =>
@@ -50,7 +61,6 @@ class CoreService {
     this.instance.post(
       `/topic/${topicId}/question/${questionId}/question_unvote`,
     );
-  fetchMyTopic = code => this.instance.get(`/topic/${code}/get_my_topic`);
   removeQuestion = (topicId, questionId) =>
     this.instance.delete(`/topic/${topicId}/question/${questionId}`);
   markAnsweredQuestion = (topicId, questionId) =>

@@ -114,7 +114,7 @@ class Event extends React.Component {
                   <button
                     key={value}
                     type="button"
-                    className="md:text-xl text-sm outline-none inline-flex items-center"
+                    className="md:text-xl text-sm outline-none inline-flex items-center text-black"
                     onClick={() => {
                       this.setState({ sortBy: value });
                     }}

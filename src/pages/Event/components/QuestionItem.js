@@ -24,19 +24,18 @@ class QuestionItem extends React.Component {
             {dayjs(question.inserted_at + 'Z').format('HH:mm')}
           </div>
         </div>
-        <div className="flex-none md:mt-0 mt-5 ml-auto flex items-center hidden text-base md:w-auto w-full">
+        <div className="flex-none md:mt-0 mt-5 ml-auto flex items-center hidden text-base md:w-24 w-full">
           <div className="flex-grow md:hidden opacity-50">
             {question.owner.full_name} -{' '}
             {dayjs(question.inserted_at + 'Z').format('HH:mm')}
           </div>
-          <Reply
-            color={question.status === 'answered' ? 'var(--primary)' : 'none'}
-            className="mr-6"
-          />
+          {question.status === 'answered' && (
+            <Reply color="var(--primary)" className="mr-6" />
+          )}
           <Component initialState={{ submitting: false }}>
             {({ state, setState }) => (
               <button
-                className="mr-2 leading-none"
+                className="mr-2 leading-none ml-auto"
                 type="button"
                 disabled={state.submitting}
                 onClick={async () => {

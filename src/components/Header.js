@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'redux-bundler-react';
 
 import LogoText from '@/components/LogoText';
+import Link from '@/components/Link';
 
 const Header = ({
   className,
@@ -13,7 +14,9 @@ const Header = ({
   <header className={className}>
     <div className="container md:py-10 py-4 px-4">
       <div className="flex items-center">
-        <LogoText />
+        <Link to="/">
+          <LogoText />
+        </Link>
         <ul className="ml-auto list-reset flex">
           <li className="px-3">
             {isLoggedIn ? (

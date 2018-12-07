@@ -50,6 +50,17 @@ class CoreService {
     this.instance.post(
       `/topic/${topicId}/question/${questionId}/question_unvote`,
     );
+  fetchMyTopic = code => this.instance.get(`/topic/${code}/get_my_topic`);
+  removeQuestion = (topicId, questionId) =>
+    this.instance.delete(`/topic/${topicId}/question/${questionId}`);
+  markAnsweredQuestion = (topicId, questionId) =>
+    this.instance.post(
+      `/topic/${topicId}/question/${questionId}/mark_answered`,
+    );
+  unmarkAnsweredQuestion = (topicId, questionId) =>
+    this.instance.post(
+      `/topic/${topicId}/question/${questionId}/unmark_answered`,
+    );
 }
 
 export default CoreService;

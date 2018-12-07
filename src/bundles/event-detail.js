@@ -12,8 +12,9 @@ const bundle = createAsyncResourceBundle({
 bundle.reactShouldFetchEventDetail = createSelector(
   'selectEventDetailShouldUpdate',
   'selectRouteParams',
-  (shouldUpdate, routeParams) => {
-    if (shouldUpdate && routeParams.code) {
+  'selectRoute',
+  (shouldUpdate, routeParams, route) => {
+    if (shouldUpdate && routeParams.code && route.name === 'Event') {
       return { actionCreator: 'doFetchEventDetail' };
     }
   },

@@ -12,6 +12,7 @@ import login from './login';
 import logout from './logout';
 import loginDialog from './login-dialog';
 import eventDetail from './event-detail';
+import myTopic from './my-topic';
 
 export default composeBundles(
   createUrlBundle(),
@@ -23,4 +24,5 @@ export default composeBundles(
   loginDialog,
   logout,
   eventDetail,
+  myTopic,
 );

@@ -50,9 +50,14 @@ class Event extends React.Component {
       );
     return (
       <div className="container px-4 pt-8">
-        <h1 className="md:text-3xl text-2xl flex items-center font-normal flex-grow md:mb-0 mb-4">
+        <h1 className="md:text-3xl text-2xl font-normal mb-3 flex items-baseline">
           {eventDetail.name}
         </h1>
+        {eventDetail.description && (
+          <div className="mb-5 text-grey-darker text-base">
+            {eventDetail.description}
+          </div>
+        )}
         <Form onSubmit={this.submit}>
           {({ handleSubmit, submitting, form, invalid, pristine }) => (
             <form onSubmit={handleSubmit} className="block w-full mt-6">

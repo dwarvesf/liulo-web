@@ -44,7 +44,8 @@ class TopicItem extends React.Component {
               className="text-primary underline"
               target="_blank"
             >
-              Manage Topic
+              Manage Topic ({topic.questions.length}{' '}
+              {topic.questions.length > 1 ? 'questions' : 'question'})
             </Link>
           </div>
           <div className="opacity-75">{topic.description}</div>

@@ -144,6 +144,7 @@ class Event extends React.Component {
         </div>
       );
     }
+    return null;
   }
 }
 

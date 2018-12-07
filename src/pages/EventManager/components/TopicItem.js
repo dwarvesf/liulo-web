@@ -13,9 +13,10 @@ class TopicItem extends React.Component {
       <div className="md:p-5 md:pr-8 p-3 border rounded-sm overflow-hidden flex items-center mb-5 md:flex-row flex-col relative">
         <div className="flex-grow w-full">
           <div className="font-bold mb-5">{topic.name}</div>
+          <div className="mb-5">{topic.code}</div>
           <div className="opacity-75">{topic.description}</div>
         </div>
-        <div className="flex-none md:mt-0 mt-5 ml-auto flex items-center hidden text-base md:w-auto w-full">
+        <div className="flex-none pl-5 md:mt-0 mt-5 ml-auto flex items-center hidden text-base md:w-auto w-full">
           <Component initialState={{ submitting: false }}>
             {({ state, setState }) => (
               <button

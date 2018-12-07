@@ -19,7 +19,13 @@ class MyTopic extends React.Component {
     }, 10000);
   }
   render() {
-    const { myTopic } = this.props;
+    const { myTopic, isLoggedIn } = this.props;
+    if (!isLoggedIn)
+      return (
+        <div className="container px-4 text-4xl font-bold text-center">
+          Please login to manage your topic
+        </div>
+      );
     if (!myTopic)
       return (
         <div className="container px-4 text-4xl font-bold text-center">

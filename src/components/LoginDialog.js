@@ -8,6 +8,7 @@ import { ReactComponent as SvgClose } from '@/components/svg/close.svg';
 
 class LoginDialog extends React.Component {
   responseGoogle = rsp => {
+    console.log(rsp);
     const { accessToken } = rsp;
     if (accessToken) {
       return this.props
